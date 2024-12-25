@@ -10,6 +10,7 @@ vms_set = np.arange(1, 4)
 get_vm_processing_power = lambda x: 1
 
 
+# TODO: These are not all possible solutions. Solutions with unbalanced distribution of tasks per vm are missing.
 def get_all_possible_solutions(
     tasks_set: np.ndarray, vms_set: np.ndarray
 ) -> np.ndarray:
@@ -40,7 +41,9 @@ def cost_function(
 ) -> int:
     max_cost = -math.inf
     for column_index in range(1, len(solution_matrix)):
-        column_etc = get_column_cost(solution_matrix[column_index], get_task_size) / get_vm_pp(column_index)
+        column_etc = get_column_cost(
+            solution_matrix[column_index], get_task_size
+        ) / get_vm_pp(column_index)
         if column_etc > max_cost:
             max_cost = column_etc
     return max_cost
