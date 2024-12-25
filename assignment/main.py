@@ -36,8 +36,8 @@ def get_column_cost(col: np.ndarray, get_task_size: Callable[[int], int]) -> int
 
 def cost_function(
     solution_matrix: np.ndarray,
-    get_vm_pp: Callable[[int], int],
     get_task_size: Callable[[int], int],
+    get_vm_pp: Callable[[int], int],
 ) -> int:
     max_cost = -math.inf
     for column_index in range(1, len(solution_matrix)):
