@@ -5,9 +5,15 @@ import numpy as np
 import itertools
 
 tasks_set = np.arange(1, 7)
-get_task_length = lambda x: 1 if x != 0 else 0
+def get_task_length(t):
+    if t == 0:
+        return 0
+    elif t % 3 == 0:
+        return 2
+    else:
+        return 1
 vms_set = np.arange(1, 4)
-get_vm_processing_power = lambda x: 1
+get_vm_processing_power = lambda x: 1 if x % 2 != 0 else 2
 
 
 # TODO: These are not all possible solutions. Solutions with unbalanced distribution of tasks per vm are missing.
