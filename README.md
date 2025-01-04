@@ -22,3 +22,13 @@ docker run --rm --memory=256m -v ./data:/app/data apa:latest src/greedy_paradigm
 ```
 docker run --rm --memory=256m -v ./data:/app/data apa:latest src/greedy_paradigm.py normal_distribution_tasks.csv
 ```
+
+
+## Run the Brute Force Algorithm
+```
+docker run --rm --memory=256m -v ./data:/app/data apa:latest src/brute_force_paradigm.py uniform_tasks.csv
+```
+
+```
+docker run --rm --memory=256m -v ./data:/app/data apa:latest src/brute_force_paradigm.py normal_distribution_tasks.csv
+```
