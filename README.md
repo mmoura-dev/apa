@@ -9,5 +9,5 @@ not the flying bison
 
 ## Run Greedy Algorithm Test
 ```
-docker image build --tag 'apa:latest' . && docker run --rm --memory=256m apa:latest src/greedy_paradigm.py
+docker image build --tag 'apa:latest' . && docker run --rm --memory=256m -v ./data:/app/data apa:latest src/greedy_paradigm.py
 ```
