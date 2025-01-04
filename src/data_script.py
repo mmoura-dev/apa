@@ -1,5 +1,7 @@
 import csv
 import os
+
+import numpy as np
 from load_balancing_problem.task import Task
 
 
@@ -8,6 +10,10 @@ def get_file_size_mb(file_name) -> float:
 
 def generate_uniform_tasks(num_tasks, id_offset=0):
     return [Task(i, 1) for i in range(id_offset + 1, num_tasks + id_offset + 1)]
+
+def generate_normal_distribution_tasks(num_tasks, id_offset=0):
+    lengths = np.round(np.random.normal(loc=5, scale=10, size=num_tasks)).astype(int)
+    return [Task(id, length) for id, length in zip(range(id_offset + 1, num_tasks + id_offset + 1), lengths)]
 
 def task_to_tuple(task: Task):
     return task.id, task.length, "very-long-filler"*200
@@ -29,4 +35,5 @@ def write_large_task_file(filename, target_size_mb, gen_tasks_func):
 if __name__ == "__main__":
     target_size_mb = 300
     filename_template = "./data/%s.csv"
-    write_large_task_file(filename_template %"constant_tasks", target_size_mb, generate_uniform_tasks)
+    write_large_task_file(filename_template %"uniform_tasks", target_size_mb, generate_uniform_tasks)
+    write_large_task_file(filename_template %"normal_distribution_tasks", target_size_mb, generate_normal_distribution_tasks)

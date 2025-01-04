@@ -33,7 +33,7 @@ def get_greedy_solution_makespan(
 
 
 if __name__ == "__main__":
-    tasks_generator = get_tasks_generator(sys.argv[1] if len(sys.argv) > 1 else "constant_tasks.csv")
+    tasks_generator = get_tasks_generator(sys.argv[1] if len(sys.argv) > 1 else "uniform_tasks.csv")
     vm_list = [VirtualMachine(1), VirtualMachine(2), VirtualMachine(1)]
 
     solution_etc = get_greedy_solution_makespan(tasks_generator, vm_list)
