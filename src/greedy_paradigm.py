@@ -37,4 +37,4 @@ if __name__ == "__main__":
     vm_list = [VirtualMachine(1), VirtualMachine(2), VirtualMachine(1)]
 
     solution_etc = get_greedy_solution_makespan(tasks_generator, vm_list)
-    print("Expected time to compute: ", solution_etc)
+    print("Expected time to compute (etc): ", solution_etc)
